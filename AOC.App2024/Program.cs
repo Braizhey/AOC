@@ -4,7 +4,7 @@ Console.WriteLine("Welcome to Advent of Code!");
 
 try
 {
-    var today = DateTime.Today.AddDays(-1).Day; //.AddDays(-X) for previous days
+    var today = DateTime.Today.Day; //.AddDays(-X) for previous days
     var svc = new AdventService(today);
     svc.Resolve(2);
 }
