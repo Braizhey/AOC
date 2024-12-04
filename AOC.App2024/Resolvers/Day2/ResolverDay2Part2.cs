@@ -1,58 +1,12 @@
-﻿namespace AOC.App2024.services
+﻿using AOC.Common.Services;
+
+namespace AOC.App2024.Resolvers.Day2
 {
-    public static class AdventServiceDay2
+
+    public class ResolverDay2Part2 : IAdventServiceResolver
     {
-        public static void ResolveDay2Part1()
+        public int Resolve(List<string> data)
         {
-            var data = File.ReadAllLines(@".\data\day_2.txt");
-
-            var safeCount = 0;
-            foreach (var line in data)
-            {
-                var inputs = line.Split(" ").Select(i => Convert.ToInt32(i)).ToList();
-
-                if (inputs[0] == inputs[1]) continue;
-
-                var isIncreasing = inputs[0] < inputs[1];
-                var isSafe = true;
-                for (var cpt = 0; cpt < inputs.Count - 1; cpt++)
-                {
-                    var current = inputs[cpt];
-                    var next = inputs[cpt + 1];
-
-                    if (isIncreasing)
-                    {
-                        if (current > next)
-                        {
-                            isSafe = false;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (current < next)
-                        {
-                            isSafe = false;
-                            break;
-                        }
-                    }
-
-                    var diff = Math.Abs(next - current);
-                    if (diff == 0 || diff > 3)
-                    {
-                        isSafe = false;
-                        break;
-                    }
-                }
-                if (isSafe) safeCount++;
-            }
-            Console.WriteLine($"Safe count: {safeCount}");
-        }
-
-        public static void ResolveDay2Part2()
-        {
-            var data = File.ReadAllLines(@".\data\day_2.txt");
-
             var safeCount = 0;
             foreach (var line in data)
             {
@@ -83,6 +37,7 @@
                 }
             }
             Console.WriteLine($"Safe count with Dampener: {safeCount}");
+            return safeCount;
         }
 
         private static bool IsSafe(ref int cpt, List<int> inputs)

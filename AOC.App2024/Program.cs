@@ -1,10 +1,19 @@
-﻿using AOC.App2024.services;
+﻿using AOC.Common.Services;
 
 Console.WriteLine("Welcome to Advent of Code!");
 
-//AdventService.ResolveDay1Part1();
-//AdventService.ResolveDay1Part2();
+try
+{
+    var today = DateTime.Today.Day; //.AddDays(-X) for previous days
+    var svc = new AdventService(today);
+    svc.Resolve(1);
+}
+catch (Exception ex)
+{
+    Console.Error.WriteLine(ex.ToString());
+}
+finally
+{
+    Console.ReadLine();
+}
 
-AdventServiceDay2.ResolveDay2Part1();
-AdventServiceDay2.ResolveDay2Part2();
-Console.ReadLine();
