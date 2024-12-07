@@ -5,6 +5,8 @@
         public int X { get; protected set; } = x;
         public int Y { get; protected set; } = y;
 
+        public Position(Position p) : this(p.X, p.Y) { }
+
         public override string ToString()
         {
             return $"[{X},{Y}]";

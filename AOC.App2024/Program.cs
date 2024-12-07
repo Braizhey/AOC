@@ -6,7 +6,7 @@ try
 {
     var today = DateTime.Today.AddDays(-1).Day; //.AddDays(-X) for previous days
     var svc = new AdventService(today);
-    svc.Resolve(1);
+    svc.Resolve(2);
 }
 catch (Exception ex)
 {
